@@ -11,7 +11,9 @@ from wtforms.validators import Length, Email, DataRequired
 
 class RequestForm(FlaskForm):
     my_choices = ["apples", "cheese", "nuclear weapons"]
+    number_of_items = SelectField(label='Item:',choices=my_choices, validators=[DataRequired()])
     item = SelectField(label='Item:',choices=my_choices, validators=[DataRequired()])
+    quantity = StringField(label='quantity:', validators=[DataRequired()])
     email_address = StringField(label='Student Email:', validators=[Email(), DataRequired()])
     student_id = StringField(label='Student Id:', validators=[Length(min=2,max=30), DataRequired()])
 

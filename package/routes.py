@@ -11,7 +11,7 @@ def home_page():
     return render_template('home.html')
 
 
-@app.route("/request")
+@app.route("/request", methods=['GET','POST'])
 def request_page():
     form = RequestForm()
 
