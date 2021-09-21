@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+Request Items
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+    <form method="POST" class="form-register" style="color:white">
+        {{ form.hidden_tag() }}
+        
+        {{ form.item.label() }}
+        {{ form.item(class="form-control", placeholder="Item") }}
+        
+        {{ form.email_address.label() }}
+        {{ form.email_address(class="form-control", placeholder="Student Email Address") }}
+        
+        {{ form.student_id.label() }}
+        {{ form.student_id(class="form-control", placeholder="student id") }}
+        
+        <br>
+        
+        {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+        
+    </form>
+        </div>
+    </div>
+</div>
+    
+    {% endblock %}
