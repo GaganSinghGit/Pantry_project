@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from typing import ItemsView
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, SelectField
@@ -16,4 +17,24 @@ class RequestForm(FlaskForm):
     student_id = StringField(label='Student Id:', validators=[Length(min=2,max=30), DataRequired()])
 
     submit = SubmitField(label='Submit form')
+=======
+from typing import ItemsView
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField, SelectField
+from wtforms.validators import Length, Email, DataRequired
+#from package.models import User
+
+# class LoginForm(FlaskForm):
+#     username = StringField(label='User Name', validators=[DataRequired()])
+#     password = PasswordField(label='Password', validators=[DataRequired()])
+#     submit = SubmitField(label='Sign in')
+
+class RequestForm(FlaskForm):
+    my_choices = ["apples", "cheese", "nuclear weapons"]
+    item = SelectField(label='Item:',choices=my_choices, validators=[DataRequired()])
+    email_address = StringField(label='Student Email:', validators=[Email(), DataRequired()])
+    student_id = StringField(label='Student Id:', validators=[Length(min=2,max=30), DataRequired()])
+
+    submit = SubmitField(label='Submit form')
+>>>>>>> ed308709c676f4184795b560223312a0dc576934
     
