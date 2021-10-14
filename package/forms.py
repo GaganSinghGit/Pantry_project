@@ -1,6 +1,6 @@
 from typing import ItemsView
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, SelectField
+from wtforms import StringField, PasswordField, SubmitField, SelectField, IntegerField
 from wtforms.validators import Length, Email, DataRequired
 #from package.models import User
 
@@ -10,12 +10,23 @@ from wtforms.validators import Length, Email, DataRequired
 #     submit = SubmitField(label='Sign in')
 
 class RequestForm(FlaskForm):
-    my_choices = ["apples", "cheese", "nuclear weapons"]
-    number_of_items = SelectField(label='Item:',choices=my_choices, validators=[DataRequired()])
-    item = SelectField(label='Item:',choices=my_choices, validators=[DataRequired()])
-    quantity = StringField(label='quantity:', validators=[DataRequired()])
-    email_address = StringField(label='Student Email:', validators=[Email(), DataRequired()])
-    student_id = StringField(label='Student Id:', validators=[Length(min=2,max=30), DataRequired()])
+    #my_choices = ["apples", "cheese", "nuclear weapons"]
 
+    student_id = IntegerField(label='Student Id:', validators=[ DataRequired()])
+    student_name = StringField(label='Student Name:', validators=[Length(min=2,max=50), DataRequired()])
+    phone_number = StringField(label='Phone number:', validators=[DataRequired()])
+    email_address = StringField(label='Student Email:', validators=[Email(), DataRequired()])
+    group_number = StringField(label='Group number:', validators=[DataRequired()])
+    item_id = StringField(label='Item ID:', validators=[DataRequired()])
+    item_name = StringField(label='Item Name:', validators=[DataRequired()])
+    item_quantity = StringField(label='quantity:', validators=[DataRequired()])
+    delivery_date = StringField(label='Delivery Date:', validators=[DataRequired()])
+    comments = StringField(label='Comments:')
     submit = SubmitField(label='Submit form')
-    
+
+class ShoppingListAddNewItem(FlaskForm):
+
+    item = StringField(label='Item:', validators=[DataRequired()])
+    quantity = StringField(label='quantity:', validators=[DataRequired()])
+    alert = StringField(label='Alert at:', validators=[DataRequired()])
+    submit = SubmitField(label='AddItem')

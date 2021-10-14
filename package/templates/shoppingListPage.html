@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}
+Shopping list Page
+{% endblock %}
+
+
+
+{% block content %}
+<div class="row justify-content-center">
+    
+</div>
+<br>
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm col-md-6">
+                <h3>Add new item to list</h3>
+                <br>
+                <form method="POST" class="form-register" style="color:white">
+                    {{ form.hidden_tag() }}
+        
+                    {{ form.item.label() }}
+                    {{ form.item(class="form-control", placeholder="Item") }}
+        
+                    {{ form.quantity.label() }}
+                    {{ form.quantity(class="form-control", placeholder="quantity (in Grams)") }}
+        
+                    {{ form.alert.label() }}
+                    {{ form.alert(class="form-control", placeholder="Alert at") }}
+        
+                    <br>
+        
+                    {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+        
+                </form>
+            </div>
+        </div>
+</div>
+<br>
+
+<div class="container">
+        <h3 class="row justify-content-center">Shopping list</h3>
+        <br>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item</th>
+            <th scope="col">Current Amount (g)</th>
+            <th scope="col">Exp Date</th>
+            <th scope="col">To Buy (g)</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for item in shop_list %}
+        <tr>
+            <th scope="row">{{ item[0] }}</th>      
+            <td> {{ item[1] }}</td>
+            <td> {{ item[2]}}</td>
+            <td> {{ item[3] }} </td>
+            <td> {{ item[4] }} </td>
+        </tr>
+        {% endfor%}
+    </tbody>
+</table>
+</div>
+
+
+{% endblock %}

@@ -10,18 +10,40 @@ Request Items
         <div class="col-sm">
     <form method="POST" class="form-register" style="color:white">
         {{ form.hidden_tag() }}
+
+        {{ form.student_id.label() }}
+        {{ form.student_id(class="form-control", placeholder="student id") }}
+
+        {{ form.student_name.label() }}
+        {{ form.student_name(class="form-control", placeholder="student id") }}
         
-        {{ form.item.label() }}
-        {{ form.item(class="form-control", placeholder="Item") }}
-        
-        {{ form.quantity.label() }}
-        {{ form.quantity(class="form-control", placeholder="quantity") }}
+        {{ form.phone_number.label() }}
+        {{ form.phone_number(class="form-control", placeholder="Phone Number") }}
 
         {{ form.email_address.label() }}
         {{ form.email_address(class="form-control", placeholder="Student Email Address") }}
+
+
+        {{ form.group_number.label() }}
+        {{ form.group_number(class="form-control", placeholder="Gruop number") }}
+
+
+        {{ form.item_id.label() }}
+        {{ form.item_id(class="form-control", placeholder="Item ID") }}
+
+        {{ form.item_name.label() }}
+        {{ form.item_name(class="form-control", placeholder="Item name") }}
+  
+        {{ form.item_quantity.label() }}
+        {{ form.item_quantity(class="form-control", placeholder="quantity (in Grams)") }}
         
-        {{ form.student_id.label() }}
-        {{ form.student_id(class="form-control", placeholder="student id") }}
+        {{ form.delivery_date.label() }}
+        {{ form.delivery_date(class="form-control", placeholder="Delivery Date") }}
+        
+        {{ form.comments.label() }}
+        {{ form.comments(class="form-control", placeholder="Comments") }}
+        
+        
         
         <br>
         

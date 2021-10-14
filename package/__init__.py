@@ -1,12 +1,23 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from flask_mysqldb import MySQL
+import pymysql
+import os
+#pymysql.install_as_MySQLdb()
 #from flask_login import LoginManager
 
+
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dashboard.db'
+
+#app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+
+#app.config["SQLALCHEMY_DATABASE_URI"]= f"mysql + mysqldb://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket =/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}"
 app.config['SECRET_KEY'] = '2392510167989ae56f41070a'
-db = SQLAlchemy(app)
+#app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= True
+#db = SQLAlchemy(app)
+mysql = MySQL(app)
 bcrypt = Bcrypt(app)
 #login_manager = LoginManager(app)
 #login_manager.login_view = 'login_page'
