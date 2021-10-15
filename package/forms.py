@@ -26,7 +26,12 @@ class RequestForm(FlaskForm):
 
 class ShoppingListAddNewItem(FlaskForm):
 
-    item = StringField(label='Item:', validators=[DataRequired()])
-    quantity = StringField(label='quantity:', validators=[DataRequired()])
-    alert = StringField(label='Alert at:', validators=[DataRequired()])
+    item_name = StringField(label='Item Name:', validators=[DataRequired()])
+    individual_weight = StringField(label='Individual Weight:', validators=[DataRequired()])
+    category = StringField(label='Category:', validators=[DataRequired()])
+    expriry_date = StringField(label='Exprire Date:', validators=[DataRequired()])
+    barcode = StringField(label='Barcode:', validators=[DataRequired()])
+    container_id = StringField(label='Container ID:', validators=[DataRequired()])
+    alert_at = StringField(label='Alert at:', validators=[DataRequired()])
+    quantity = StringField(label='Quantity:', validators=[DataRequired()])
     submit = SubmitField(label='AddItem')

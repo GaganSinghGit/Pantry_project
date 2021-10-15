@@ -19,34 +19,51 @@ def request_page():
 
     if form.validate_on_submit():
 
-        id = randint(0, 100)
-        request_to_submit = [form.student_id, form.student_name,form.phone_number,form.email_address,form.group_number,form.item_id,form.item_name,form.item_quantity,form.delivery_date,form.comments]
+        id = randint(700, 10000)
+        #request_to_submit = [form.student_id, form.student_name,form.phone_number,form.email_address,form.group_number,form.item_id,form.item_name,form.item_quantity,form.delivery_date,form.comments]
         query = 'INSERT INTO request_form VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
         values = (id,form.student_id.data, form.student_name.data,form.phone_number.data,form.email_address.data,form.group_number.data,form.item_id.data,form.item_name.data,form.item_quantity.data,form.delivery_date.data, form.comments.data)        
         cur = mysql.connection.cursor()
         cur.execute(query, values)
         mysql.connection.commit()
+
+        flash(f'Request form submiited succesfully Form ID {id}', category='success')
         #add request
         #add_request()
+
+
+
 
     return render_template('requestForm.html', form = form)
 
 @app.route("/shoppinglist", methods=['GET','POST'])
 def shopping_list():
 
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT * FROM food_item''')
 
+    # check if the item is low in stock
+
+    result = [i for i in cur.fetchall() if i[-1] <= i[-2]]
 
     #adding items
     new_item = ShoppingListAddNewItem()
 
 
     Test_list = [[12, "Apples", 300,"12-Nov-2021", 2000], [42, "Cheese", 200,"15-Nov-2021", 3000]]
-    return render_template("shoppingListPage.html", form = new_item , shop_list = Test_list)
+
+    return render_template("shoppingListPage.html", form = new_item , shop_list = result)
 
 @app.route("/showrequests")
 def show_requests():
     request_forms = [["453","123213","abc@deakin.edu.au","Apple",200],["454","125513","ksksk@deakin.edu.au","Apple",300]]
-    return render_template('showRequests.html', request_forms= request_forms)
+
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT * FROM request_form''')
+
+    result = cur.fetchall()
+    return render_template('showRequests.html', request_forms= result)
 
 @app.route("/test")
 def test():
@@ -77,3 +94,4 @@ def food_items():
     
 
     return render_template('foodItemPage.html', items = result)
+

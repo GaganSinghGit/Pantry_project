@@ -41,12 +41,27 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('containers') }}">Containers</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('food_items') }}">Food Items</a>
+            </li>
         </ul>
         
 
     </div>
 </nav>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="alert alert-{{ category }}">
+    <button type="button" class="m1-2 mb-1 close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
 
+    </button>
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
 
     {% block content %}
     {% endblock %}
