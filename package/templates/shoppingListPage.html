@@ -9,9 +9,14 @@ Shopping list Page
 <div class="row justify-content-center">
     
 </div>
+
 <br>
 <div class="container">
-        <div class="row justify-content-center">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseForm"
+        aria-expanded="false" aria-controls="collapseExample">
+        Add New Custom Item to Shopping List
+    </button>
+        <div class="row justify-content-center collapse" id ="collapseForm">
             <div class="col-sm col-md-6">
                 <h3>Add new item to list</h3>
                 <br>
@@ -22,19 +27,19 @@ Shopping list Page
                     {{ form.item_name(class="form-control", placeholder="Item") }}
                     
                     {{ form.individual_weight.label() }}
-                    {{ form.individual_weight(class="form-control", placeholder="Item") }}
+                    {{ form.individual_weight(class="form-control", placeholder="Individual weight") }}
 
                     {{ form.category.label() }}
-                    {{ form.category(class="form-control", placeholder="Item") }}
+                    {{ form.category(class="form-control", placeholder="Category") }}
                     
                     {{ form.expriry_date.label() }}
-                    {{ form.expriry_date(class="form-control", placeholder="Item") }}
+                    {{ form.expriry_date(class="form-control", placeholder="Exp Date") }}
 
                     {{ form.barcode.label() }}
-                    {{ form.barcode(class="form-control", placeholder="Item") }}
+                    {{ form.barcode(class="form-control", placeholder="Barcode") }}
 
                     {{ form.container_id.label() }}
-                    {{ form.container_id(class="form-control", placeholder="Item") }}
+                    {{ form.container_id(class="form-control", placeholder="Container ID") }}
 
                     {{ form.alert_at.label() }}
                     {{ form.alert_at(class="form-control", placeholder="Set Alert at") }}
@@ -71,7 +76,7 @@ Shopping list Page
                 <th scope="col">Last checkout Time</th>
                 <th scope="col">Status</th>
                 <th scope="col">Alert at</th>
-                <th scope="col">Available</th>
+                <th scope="col" class="bg-danger">Available</th>
     
     
             </tr>
@@ -83,12 +88,74 @@ Shopping list Page
                 <tr>
                     <th scope="row">{{ item[0] }}</th>
         
-                    {% for i in item[1:]%}
+                    {% for i in item[1:-1]%}
                     <td> {{ i }}</td>
                     {% endfor %}
+                    <td class="bg-danger">{{ item[-1] }}</td>
         
                 </tr>
                 
+            {% endfor%}
+        </tbody>
+    </table>
+    
+</div>
+
+
+<div class="row justify-content-center">
+    <div class="col-sm col-md-6">
+        <h4>Update Weight</h4>
+        <br>
+        <form method="POST" class="form-register" style="color:white">
+            {{ update_weight.hidden_tag() }}
+
+            {{ update_weight.item_id.label() }}
+            {{ update_weight.item_id(class="form-control", placeholder=" Food Item ID") }}
+
+            {{ update_weight.weight_to_add.label() }}
+            {{ update_weight.weight_to_add(class="form-control", placeholder="weight") }}
+            <br>
+            {{ update_weight.submit(class="btn btn-lg btn-block btn-primary") }}
+
+
+
+        </form>
+    </div>
+</div>
+
+<div>
+<br>
+<div class="container">
+    <h3 class="row justify-content-center">Containers that will expire soon</h3>
+    <br>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Container ID</th>
+                <th scope="col">Barcode</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Food ID</th>
+                <th scope="col" class="bg-danger">Expiry Date</th>
+                
+            
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for item in containers_to_expire %}
+
+            <tr>
+                <th scope="row">{{ item[0] }}</th>
+                <td> {{ item[1] }}</td>
+                <td> {{ item[2] }}</td>
+                <td> {{ item[3] }}</td>
+                <td class="bg-danger"> {{ item[5] }}</td>
+                
+                
+
+            </tr>
+
             {% endfor%}
         </tbody>
     </table>

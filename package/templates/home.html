@@ -4,5 +4,97 @@ Home Page
 {% endblock %}
 
 {% block content %}
-This is our content for home page
+<div class="container-fluid padding">
+
+    <br>
+    <h1> Welcome to Pantry Master! </h1>
+    <br>
+
+    <div class="row padding">
+        <div class=" col-md-12 col-lg-6">
+            <h3 style="font-family: verdana"> Deakin University's pantry database for <b> Unit HSN754 - Dietary
+                    Modification to Improve Health </b> </h3>
+            <br>
+            <br>
+            <p>
+                This website will allow students to access the available items in Deakin Univeristy's pantry and place
+                requests to get these items.
+                <br>
+                <br>
+                Staff can view information about the food items available in the pantry, important information such as
+                the requests placed and food stored in each container.
+                <br>
+                Staff also get an automatic shopping list created that list out the items that are in low supply and
+                whose expiration dates are getting closer.
+            </p>
+        </div>
+        <div class=" col-lg-6">
+            <!--   <img src = "Users\sarah\Documents\GitHub\Pantry_project\package\templates\deakin_logo.png" class = "img=fluid"> -->
+        </div>
+        <!-- <div class = "container-fluid padding"> -->
+        <div class="container-fluid padding">
+            <br>
+            <h3> About Pantry Master </h3>
+
+            <br>
+            <br>
+            <p>
+                Pantry Master is a project developed for Unit SIT223 Professional Practice in IT.<br>
+                This project has the following functionalities:
+            <ol>
+                <li> Allow Students to Submit Request Forms for food items</li>
+                <li> Shows current stock of items available in pantry</li>
+                <li> Shopping list of items that need to be purchased</li>
+            </ol>
+            The group members of <i> The Pringles </i> are:
+            <ul>
+                <li>Gaganjeet Singh</li>
+                <li>Ben Marriner</li>
+                <li>Sarah Satish Masih</li>
+            </ul>
+            </p>
+
+        </div>
+        <div class="container-fluid padding">
+            <hr style="width:50%;text-align:left;margin-left:0;color:white;">
+            <h3>Navigating the website</h3>
+            <br>
+            <br>
+
+            <h5> Request </h5>
+            <p>
+            <ul>Access the request form on this page.</ul>
+            </p>
+            <br>
+
+
+            <h5> Shopping List </h5>
+            <p>
+            <ul>List of items that need to be purchased based on stock levels and expiry dates of each item.</ul>
+            </p>
+            <br>
+
+            <h5> Show Requests </h5>
+            <p>
+            <ul>View all the request forms that have been submitted by students.</ul>
+            </p>
+            <br>
+
+            <h5> Containers </h5>
+            <p>
+            <ul>Gives a complete overview of all the containers being used, the food items contained in the respective
+                container and their barcodes. </ul>
+            </p>
+            <br>
+
+            <h5> Food Items </h5>
+            <p>
+            <ul>Displays a table with all available food items and their current stock levels. </ul>
+            <ul>Important information such as allergens, expiry dates, availability and its container ID can be viewed
+                here.</ul>
+            </p>
+            <br>
+        </div>
+    </div>
+</div>
 {% endblock %}

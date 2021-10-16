@@ -18,7 +18,7 @@ Container Page
                 <th scope="col">Barcode</th>
                 <th scope="col">Weight (g)</th>
                 <th scope="col">Food ID</th>
-                
+                <th scope="col" class="table-active">Exp Date</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +29,7 @@ Container Page
                 <td> {{ item[1] }}</td>
                 <td> {{ item[2]}}</td>
                 <td> {{ item[3] }} </td>
+                <td class="table-active"> {{ item[5] }} </td>
                 
             </tr>
             {% endfor%}

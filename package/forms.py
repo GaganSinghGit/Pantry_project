@@ -32,6 +32,12 @@ class ShoppingListAddNewItem(FlaskForm):
     expriry_date = StringField(label='Exprire Date:', validators=[DataRequired()])
     barcode = StringField(label='Barcode:', validators=[DataRequired()])
     container_id = StringField(label='Container ID:', validators=[DataRequired()])
-    alert_at = StringField(label='Alert at:', validators=[DataRequired()])
-    quantity = StringField(label='Quantity:', validators=[DataRequired()])
+    alert_at = IntegerField(label='Alert at:', validators=[DataRequired()])
+    quantity = IntegerField(label='Quantity:', validators=[DataRequired()])
     submit = SubmitField(label='AddItem')
+
+class UpdateAvailableWeight(FlaskForm):
+
+    item_id = IntegerField(label='Item Id:', validators=[DataRequired()])
+    weight_to_add = IntegerField(label='Input weight:', validators=[DataRequired()])
+    submit = SubmitField(label='Update')
