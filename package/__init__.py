@@ -10,10 +10,7 @@ import os
 
 
 app = Flask(__name__)
-app.config['MYSQL_USER'] = 'uh1lpxveaoe75wvj'
-app.config['MYSQL_PASSWORD'] = 'TTUpXWH7KdfBQHBmfIZZ'
-app.config['MYSQL_HOST'] = 'bgpteeqexi1aiwxd0d4c-mysql.services.clever-cloud.com'
-app.config['MYSQL_DB'] = 'bgpteeqexi1aiwxd0d4c'
+
 #app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 #app.config["SQLALCHEMY_DATABASE_URI"]= f"mysql + mysqldb://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket =/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}"
